@@ -1,4 +1,4 @@
-package org.example.utils;
+package example.utils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -7,9 +7,9 @@ import org.openqa.selenium.edge.EdgeDriver;
 
 public class WebDriverSetup {
     public static WebDriver getWebDriver(String browserName) {
-        if (browserName.toLowerCase().equals("chrome")) {
+        if (browserName.equalsIgnoreCase("chrome")) {
             return getChromeDriver();
-        } else if (browserName.toLowerCase().equals("edge")) {
+        } else if (browserName.equalsIgnoreCase("edge")) {
             return getEdgeDriver();
         }
         throw new IllegalArgumentException("Match not found for the following browser: " + browserName);

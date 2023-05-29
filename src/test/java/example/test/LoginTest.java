@@ -1,16 +1,16 @@
-package org.example.test;
+package example.test;
 
-import org.example.pages.HomePage;
-import org.example.pages.LoginPage;
-import org.example.utils.WebDriverSetup;
+import example.pages.HomePage;
+import example.pages.LoginPage;
+import example.utils.WebDriverSetup;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
-public class ValidLoginTest {
+import java.util.Scanner;
+
+public class
+LoginTest {
     private WebDriver driver;
     private LoginPage loginPage;
     private HomePage homePage;
@@ -45,7 +45,6 @@ public class ValidLoginTest {
         Assert.assertTrue(homePage.isSignOutLinkDisplayed());
 
         homePage.clickSignOutLink();
-
         Assert.assertTrue(loginPage.isLoginFormDisplayed());
 
         try {
@@ -59,4 +58,20 @@ public class ValidLoginTest {
     public void teardown() {
         driver.close();
     }
+
+    @DataProvider(name = "credentials")
+    public Object[][] provideCredentials() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter email: ");
+        String email = scanner.nextLine();
+
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+
+        scanner.close();
+
+        return new Object[][] {{ email, password }};
+    }
 }
+
