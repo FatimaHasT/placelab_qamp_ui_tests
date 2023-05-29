@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Single Place Search suite" verbose="1" >
+    <test name="PlaceLab Single Place Search Smoke test" >
+        <classes>
+            <class name="org.example.test.LoginTest" />
+        </classes>
+    </test>
+</suite>
